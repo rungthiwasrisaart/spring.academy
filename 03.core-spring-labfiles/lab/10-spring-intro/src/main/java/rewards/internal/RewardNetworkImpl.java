@@ -59,8 +59,8 @@ public class RewardNetworkImpl implements RewardNetwork {
         //          the sequence diagram in the lab document
         // System.out.println("dining : " + dining.toString());
 
-        Account account = this.accountRepository.findByCreditCard(dining.getCreditCardNumber());
-        Restaurant restaurant = this.restaurantRepository.findByMerchantNumber(dining.getMerchantNumber());
+        Account account = accountRepository.findByCreditCard(dining.getCreditCardNumber());
+        Restaurant restaurant = restaurantRepository.findByMerchantNumber(dining.getMerchantNumber());
         // System.out.println("account : " + account.toString());
         // System.out.println("restaurant : " + restaurant.toString());
 
@@ -71,9 +71,9 @@ public class RewardNetworkImpl implements RewardNetwork {
 
         // System.out.println("accountContribution : " + accountContribution.toString());
 
-        this.accountRepository.updateBeneficiaries(account);
+        accountRepository.updateBeneficiaries(account);
 
         // TODO-08: Return the corresponding reward confirmation
-        return this.rewardRepository.confirmReward(accountContribution, dining);
+        return rewardRepository.confirmReward(accountContribution, dining);
     }
 }
