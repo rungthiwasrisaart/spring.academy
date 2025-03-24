@@ -11,7 +11,7 @@ import config.RewardsConfig;
 	TestInfrastructureLocalConfig.class,
 	TestInfrastructureJndiConfig.class,
 	RewardsConfig.class })
-public class TestInfrastructureConfig {
+ public class TestInfrastructureConfig {
 
 	/**
 	 * The bean logging post-processor from the bean lifecycle slides.
