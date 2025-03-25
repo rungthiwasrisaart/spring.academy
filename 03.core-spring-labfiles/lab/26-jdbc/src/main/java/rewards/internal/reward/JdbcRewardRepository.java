@@ -37,12 +37,10 @@ import java.sql.*;
 
 public class JdbcRewardRepository implements RewardRepository {
 
-    private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcRewardRepository(DataSource dataSource) {
-        this.dataSource = dataSource;
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+    public JdbcRewardRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     public RewardConfirmation confirmReward(AccountContribution contribution, Dining dining) {
