@@ -1,8 +1,10 @@
 package accounts;
 
+import config.RestSecurityConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Import;
 
 // TODO-00: In this lab, you are going to exercise the following:
 // - Observing the default security behavior
@@ -32,13 +34,13 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 //           Boot application using "curl" (or "Postman")
 // - Open a terminal window (if you are using "curl")
 // - Run "curl -i localhost:8080/accounts" and observe 401 response
-// - Run "curl -i -u user:<Spring-Boot-Generated-Password> localhost:8080/accounts"
+// - Run "curl -i -u user:2c75582b-67a1-4be2-8301-29caf763318a localhost:8080/accounts"
 //   and observe a successful response
 
 @SpringBootApplication
-//TODO-03: Import security configuration class
+// TODO-03: Import security configuration class
 //- Uncomment the line below and go to RestSecurityConfig class
-//@Import(RestSecurityConfig.class)
+@Import(RestSecurityConfig.class)
 @EntityScan("rewards.internal")
 public class RestWsApplication {
 
@@ -60,13 +62,13 @@ public class RestWsApplication {
 // - Access http://localhost:8080/authorities?username=admin
 // - Enter "admin"/"admin" and verify that the roles are displayed successfully
 // - If you want to use "curl", use
-//   curl -i -u admin:admin http://localhost:8080/authorities?username=admin
+//   curl -i -u admin:admin "http://localhost:8080/authorities?username=admin"
 //
 // - Close the Chrome Incognito browser and start a new one
 // - Access http://localhost:8080/authorities?username=superadmin
 // - Enter "superadmin"/"superadmin" and verify that the roles are displayed successfully
 // - If you want to use "curl", use
-//   curl -i -u superadmin:superadmin http://localhost:8080/authorities?username=superadmin
+//   curl -i -u superadmin:superadmin "http://localhost:8080/authorities?username=superadmin"
 
 // ------------------------------------------------
 
@@ -76,7 +78,7 @@ public class RestWsApplication {
 //   http://localhost:8080/accounts/0
 // - Enter "mary"/"mary" and verify accounts data gets displayed
 // - If you want to use "curl", use
-//   curl -i -u mary:mary http://localhost:8080/accounts/0
+//   curl -i -u mary:mary "http://localhost:8080/accounts/0"
 //
 // - Close the Chrome Incognito browser and start a new one
 // - Using Chrome Incognito browser, access
@@ -93,4 +95,4 @@ public class RestWsApplication {
 //   http://localhost:8080/accounts/0
 // - Enter "spring"/"spring" and verify accounts data
 // - If you want to use "curl", use
-//   curl -i -u spring:spring http://localhost:8080/accounts/0
+//   curl -i -u spring:spring "http://localhost:8080/accounts/0"
